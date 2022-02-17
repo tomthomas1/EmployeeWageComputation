@@ -1,6 +1,6 @@
 package com.bridgelabz;
 
-public class DailyEmployeeWage {
+public class EmployeeWage {
 	public static void main(String[] args) {
 		double attendance = Math.floor(Math.random() * 2);
 		int wages;
@@ -12,4 +12,5 @@ public class DailyEmployeeWage {
 			System.out.println(" Employess is absent. \n Wages Earned = " + wages);
 		}
 	}
+
 }
