@@ -2,15 +2,20 @@ package com.bridgelabz;
 
 public class EmployeeWage {
 	public static void main(String[] args) {
-		double attendance = Math.floor(Math.random() * 2);
-		int wages;
-		if (attendance == 1) {
-			wages = 160;
-			System.out.println(" Employee is present. \n Wages Earned = " + wages);
-		} else {
-			wages = 0;
-			System.out.println(" Employess is absent. \n Wages Earned = " + wages);
+		int attendance = (int) Math.floor((Math.random() * 3));
+		int wages = 20;
+		switch (attendance) {
+		case 0:
+			int empHrs = 4;
+			System.out.println("Employee is Present and done Part Time: \n Wage is " + empHrs * wages);
+			break;
+		case 1:
+			int empHr = 8;
+			System.out.println(" Employee is Present and done Full Time: \n Wage is " + empHr * wages);
+			break;
+		case 2:
+			System.out.println(" Employee is absent \n Wage is 0 ");
+			break;
 		}
 	}
-
 }
