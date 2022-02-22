@@ -1,46 +1,50 @@
 package com.bridgelabz;
 
 public class EmployeeWage {
-	public static void main(String[] args) {
-		final int PART_TIME = 1;
-		final int FULL_TIME = 2;
-		final int PART_TIME_HOURS = 4;
-		final int FULL_TIME_HOURS = 8;
+	private static final int IS_FULL_TIME = 1;
+	private static final int IS_PART_TIME = 2;
 
-		int wage = 0;
-		int days = 0;
-		int hours = 0;
-		int no_of_days = 20;
-		int max_hours_in_month = 100;
-		int wages_per_hour = 20;
+	// method to compute employee wage
+	public static int calculateEmpWageForCompany(String company, int empRate, int numOFDays, int maxHours) {
 
-		while (days < no_of_days && hours < max_hours_in_month) {
-			int attendance = (int) Math.floor((Math.random() * 10) % 3);
+		System.out.println("\n ----- Welcome to Employee Wage Computation! -----");
+		int empHrs = 0, empWagePerMonth = 0, totalWorkingdays = 0, totalEmpHours = 0;
 
-			switch (attendance) {
+		while (totalEmpHours <= maxHours && totalWorkingdays < numOFDays) { // condition
 
-			case PART_TIME:
-				if (hours + PART_TIME_HOURS > 100) {
-					break;
-				}
-				hours += PART_TIME_HOURS;
-				days++;
+			totalWorkingdays++;
+			int empType = (int) Math.floor(Math.random() * 10) % 3; // random fun to check if employee is doing full
+																	// time or part time
+
+			switch (empType) {
+			case IS_FULL_TIME:
+				empHrs = 8;
+				System.out.println("Employee has done a Full Time");
 				break;
-			case FULL_TIME:
-				if (hours + FULL_TIME_HOURS > 100) {
-					break;
-				}
-				hours += FULL_TIME_HOURS;
-				days++;
+			case IS_PART_TIME:
+				empHrs = 4;
+				System.out.println("Employee has done a Part Time");
 				break;
+			default:
+				empHrs = 0;
+				System.out.println("Employee was Absent");
 			}
+			// to calculate the employee wage
+			totalEmpHours += empHrs;
+			int empWagePerDay = empHrs * empRate;
+			empWagePerMonth += empWagePerDay;
+			System.out.println("Emp Wage Per Day : " + empWagePerDay);
 		}
 
-		wage = hours * wages_per_hour;
+		System.out.println("Emp Wage Per Month for Company " + company + " is Rs." + empWagePerMonth);
+		return empWagePerMonth; // to return the wage
+	}
 
-		System.out.println(" TOTAL WAGES= " + wage);
-		System.out.println(" TOTAL WORKING DAYS = " + days);
-		System.out.println(" TOTAL WORKING HOURS = " + hours);
+	public static void main(String[] args) {
+		// calling the method with parameter input
+		calculateEmpWageForCompany("TATA", 30, 3, 30);
+		calculateEmpWageForCompany("Reliance", 20, 4, 40);
 
 	}
+
 }
