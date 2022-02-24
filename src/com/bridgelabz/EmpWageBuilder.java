@@ -3,7 +3,7 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class EmpWageBuilder {	
+public class EmpWageBuilder  {	
 	
 	private static ArrayList<CompanyEmpWage> CompanyList = new ArrayList<CompanyEmpWage>();
 	Scanner scan = new Scanner(System.in);

@@ -3,7 +3,7 @@ package com.bridgelabz;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CompanyService {
+public class CompanyService implements EmployeeInterface{
 	
 	Scanner scan = new Scanner(System.in);
 
