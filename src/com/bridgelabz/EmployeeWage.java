@@ -8,6 +8,8 @@ public class EmployeeWage {
 	private final int empRate;
 	private final int numOFDays;
 	private final int maxHours;
+	private int empWagePerMonth;
+
 	
 	public EmployeeWage(String company, int empRate, int numOFDays, int maxHours) {                //creating constructor for input of data
 		this.company = company;
@@ -15,12 +17,10 @@ public class EmployeeWage {
 		this.numOFDays = numOFDays;
 		this.maxHours = maxHours;
 	}
-	public int calculateEmpWageForCompany() {
-		
-		System.out.println("----- Welcome to Employee Wage Computation! -----");
-		int empHrs=0, empWagePerMonth = 0, totalWorkingdays=0, totalEmpHours = 0;
+	public void calculateEmpWageForCompany() {
+		int empHrs=0,totalWorkingdays=0, totalEmpHours = 0;
 				
-		while(totalEmpHours <= this.maxHours && totalWorkingdays < this.numOFDays) {
+		while(totalEmpHours <= maxHours && totalWorkingdays < numOFDays) {
 			
 			totalWorkingdays ++;
 			int empType = (int)Math.floor(Math.random() * 10) % 3;
@@ -37,21 +37,27 @@ public class EmployeeWage {
 			}
 			
 			totalEmpHours += empHrs;
-			int empWagePerDay = empHrs * this.empRate;
+			int empWagePerDay = empHrs * empRate;
 			empWagePerMonth += empWagePerDay;
 			System.out.println("Emp Wage Per Day : "+empWagePerDay);
 		}
-		
-		System.out.println("Emp Wage Per Month for Company "+this.company+" is Rs."+empWagePerMonth);
-		return empWagePerMonth;
 	}
+		
+		@Override
+		public String toString() {
+			return "Emp Wage Per Month for Company " + company + " is : " + empWagePerMonth;
+		}
+
 	
-	public static void main(String[] args) {                                                    // we are passing the values to EmployeeWage and then 
+	public static void main(String[] args) {    
+		System.out.println("----- Welcome to Employee Wage Computation! -----");
 		EmployeeWage tata = new EmployeeWage("TATA", 20, 2, 10);                                //  calculating the wage for all company. We have created the object of the company
 		EmployeeWage reliance = new EmployeeWage("RELIANCE", 40, 5, 20);
 		tata.calculateEmpWageForCompany();
-		System.out.println();
+		System.out.println(tata);
 		reliance.calculateEmpWageForCompany();
+		System.out.println(reliance);
+
 		
 	
 	}
