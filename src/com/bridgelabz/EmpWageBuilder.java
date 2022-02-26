@@ -33,25 +33,21 @@ public class EmpWageBuilder  {
 			
 			switch (attendance) {
 			case 0:
-				//System.out.println(" Employee is absent. ");
+				//Employee is Absent
 				break;
 				
 			case IS_PART_TIME: 
 					if (hours + PART_TIME_HOURS > max_hours_in_month) {
-//						System.out.println(" skip");
 						break;
 					}
-//					System.out.println(" part time");
 					hours += PART_TIME_HOURS;
 					days++;
 					daily_wages.add("part time: " + (PART_TIME_HOURS * wages_per_hour));
 					break;
 			case IS_FULL_TIME:
 					if (hours + FULL_TIME_HOURS > max_hours_in_month) {
-//						System.out.println(" skip");
 						break;
 					}
-//					System.out.println(" full time");
 					hours += FULL_TIME_HOURS;
 					days++;
 					daily_wages.add("full time: " + (FULL_TIME_HOURS * wages_per_hour));
