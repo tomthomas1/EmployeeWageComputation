@@ -2,14 +2,16 @@ package com.bridgelabz;
 
 import java.util.Scanner;
 
-public class EmployeeWage {
+public class EmployeeWageMain {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		boolean loop = true;
 		int ch;
 		
+		// creating object of CompanyService
 		CompanyService obj = new CompanyService();
 		
+		//running the while loop and calling the methods inside
 		while (loop) {
 			System.out.println("\n ======== ");
 			System.out.println(" 1. Add company\n 2. Print Employee Details\n 3. Exit");

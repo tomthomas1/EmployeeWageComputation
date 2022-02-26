@@ -3,17 +3,29 @@ package com.bridgelabz;
 import java.util.ArrayList;
 public class CompanyEmpWage {
 
+	//declaring variables
 	private int wage = 0;    
 	private int days = 0;    
 	private int hours = 0;   
 	private String name;
+	private ArrayList<String> daily_wages = new ArrayList<>();
 	
+	//Parameterized constructor
 	public CompanyEmpWage(String name, int days, int hours, int wage ) {
 		super();
 		this.wage = wage;
 		this.days = days;
 		this.hours = hours;
 		this.name = name;
+	}
+
+	//getters and setters
+	public ArrayList<String> getDaily_wages() {
+		return daily_wages;
+	}
+
+	public void setDaily_wages(ArrayList<String> daily_wages) {
+		this.daily_wages = daily_wages;
 	}
 
 	public int getWage() {
@@ -48,9 +60,13 @@ public class CompanyEmpWage {
 		this.name = name;
 	}
 	
+	//ToString to display output
 	@Override
 	public String toString() {		
 		System.out.println("\n ==== " + name + " ====");
+		for (String string : daily_wages) {
+			System.out.println(string);
+		}
 		System.out.println(" Total wages earned = " + wage);
 		System.out.println(" Total working days = " + days);
 		System.out.print(" Total working hours = " + hours);	

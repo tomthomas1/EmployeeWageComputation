@@ -4,27 +4,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CompanyService implements EmployeeInterface{
-	
+	ArrayList<CompanyEmpWage> CompanyList = new ArrayList<CompanyEmpWage>();	
 	Scanner scan = new Scanner(System.in);
-
+	
+     //method to add company. We are calling the method getinfo and the computing the employee wage
 	public void addCompany() {
-		ArrayList<CompanyEmpWage> temp = EmpWageBuilder.getCompanyList();
-		CompanyEmpWage e = getInfo();
-		EmpWageBuilder.computeEmployeeWage(e);
-		temp.add(e);
-		EmpWageBuilder.setCompanyList(temp);
+		CompanyEmpWage s = getInfo();                     //the output of getInfo is saved in variable s
+		EmpWageBuilder.computeEmployeeWage(s);             //then we run the method computeEmployeeWage and pass the output s to it. 
+		CompanyList.add(s);                           //we add the result in ArrayList
 	}
 	
+	//to display the ArrayList
 	public void printCompany() {
 		
-		ArrayList<CompanyEmpWage> temp = EmpWageBuilder.getCompanyList();
-		for (CompanyEmpWage employee : temp) {
-			System.out.println(employee);
+		System.out.println(CompanyList);
 		}
-	}
 	
+	//method to take input form the user
 	public CompanyEmpWage getInfo() {
-//		scan.nextLine(); // to read the extra \n before it
 		System.out.print("\n\n Please enter the name of the company: ");
 		String name = scan.next();
 		
@@ -37,6 +34,6 @@ public class CompanyService implements EmployeeInterface{
 		System.out.print(" Please enter the wages per hour: ");
 		int wages_per_hour = scan.nextInt();
 		
-		return new CompanyEmpWage(name, no_of_days, max_hours_in_month, wages_per_hour);
+		return new CompanyEmpWage(name, no_of_days, max_hours_in_month, wages_per_hour);    //we are passing the value to constructor
 	}
 }
