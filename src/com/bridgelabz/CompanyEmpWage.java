@@ -64,6 +64,7 @@ public class CompanyEmpWage {
 	@Override
 	public String toString() {		
 		System.out.println("\n ==== " + name + " ====");
+		System.out.println("Daily wage is :");
 		for (String string : daily_wages) {
 			System.out.println(string);
 		}
