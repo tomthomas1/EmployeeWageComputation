@@ -36,4 +36,20 @@ public class CompanyService implements EmployeeInterface{
 		
 		return new CompanyEmpWage(name, no_of_days, max_hours_in_month, wages_per_hour);    //we are passing the value to constructor
 	}
+	
+	//to compute compant wage
+	public void CompanyWage() {
+		
+		System.out.println(" Please enter the name of the company: ");
+		String name = scan.next();
+		
+		for (CompanyEmpWage companyEmpWage : CompanyList) {
+			if(companyEmpWage.getName().equals(name)) {               //if the company name exists in list
+				System.out.println("The total wages for this company: " + companyEmpWage.getWage());   // we have used the getters to get the wage value
+				return;
+			}
+		}
+		
+		System.out.println(" Company of this name does not exist!");
+	}
 }
